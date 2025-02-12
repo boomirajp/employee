@@ -4,6 +4,7 @@ import com.java.springbootapp.entity.Employee;
 import com.java.springbootapp.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,6 +18,11 @@ public class EmployeeController {
     @Autowired
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
+    }
+
+    @GetMapping(value = "hello")
+    public String hello() {
+        return "Hello, You are successfully deployed spring boot app in Azure Web app!";
     }
 
     @PostMapping(value = "addEmployee")
