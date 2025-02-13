@@ -14,9 +14,17 @@ jobs:
     runs-on: windows-latest
     permissions:
       contents: read #This is required for actions/checkout
-
+    env:
+      DB_USERNAME: ${{secrets.DB_USERNAME}}
+      DB_PASSWORD: ${{secrets.DB_PASSWORD}}
+      
+    
+      
     steps:
       - uses: actions/checkout@v4
+
+      - name: PRINT DB DATA
+        run: echo "DB DETAILS:$DB_USERNAME"
 
       - name: Set up Java version
         uses: actions/setup-java@v4
