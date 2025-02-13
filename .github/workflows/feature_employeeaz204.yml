@@ -42,8 +42,8 @@ jobs:
   deploy:
     runs-on: windows-latest
     env:
-      DB_USERNAME: ${{secret.db_username}}
-      DB_PASSWORD: ${{secret.db_password}}
+      DB_USERNAME: ${{secrets.db_username}}
+      DB_PASSWORD: ${{secrets.db_password}}
     needs: build
     environment:
       name: 'Production'
