@@ -10,7 +10,8 @@ on:
   workflow_dispatch:
 
 env:
-  NAME: 'employee'
+  NAME: "employee"
+  
 jobs:
   build:
     runs-on: windows-latest
@@ -25,11 +26,12 @@ jobs:
         with:
           java-version: '21'
           distribution: 'microsoft'
-
-      - name: Build with Maven
-        run: mvn clean install
+          
       - name: Print name
-        run: "Hello $NAME"
+        run: echo "Hello $NAME"
+        
+      - name: Build with Maven
+        run: mvn clean install      
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -39,6 +41,9 @@ jobs:
 
   deploy:
     runs-on: windows-latest
+    env:
+      DB_USERNAME: ${{secret.db_username}}
+      DB_PASSWORD: ${{secret.db_password}}
     needs: build
     environment:
       name: 'Production'
