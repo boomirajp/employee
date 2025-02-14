@@ -16,6 +16,7 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_id_seq")
+    @SequenceGenerator(name = "employee_id_seq", allocationSize = 1) 
     private Long id;
     @Column(name = "FIRST_NAME")
     private String firstName;
