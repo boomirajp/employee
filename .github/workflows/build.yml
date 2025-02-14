@@ -1,4 +1,5 @@
 name: Build and deploy JAR app to Azure Web App - study204
+run-name: ${{ github.actor }} ${{ secrets.DB_USERNAME }} is learning GitHub Actions
 
 on:
   push:
