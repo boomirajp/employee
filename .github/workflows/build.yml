@@ -1,0 +1,10 @@
+on:
+  pull_request:
+    branches: 
+      - gitcheck
+env:
+  user: ${{DB_USERNAME}}
+  
+  name: read from secrets
+  run: "this is to read $user"
+      
