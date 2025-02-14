@@ -2,9 +2,19 @@ on:
   pull_request:
     branches: 
       - gitcheck
+      
+jobs: 
+  build:
+
+    runs-on: ${{matrix.os}}
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+ 
 env:
   user: ${{DB_USERNAME}}
   
   name: read from secrets
   run: "this is to read $user"
+  
       
