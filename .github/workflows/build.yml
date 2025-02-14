@@ -20,6 +20,7 @@ jobs:
         env:
           USERNAME: ${{ secrets.DB_USERNAME }}
           PASSWORD: ${{ secrets.DB_PASSWORD }}
+          test: ${{ github.actor }}
 
       - name: PRINT DB DATA
         run: echo "DB DETAILS- $USERNAME"
